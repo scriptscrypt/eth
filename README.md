@@ -1,13 +1,13 @@
 ## Etheasy
 
 ## Description
-A made easy documentation for Ethers.js
+An interactive documentation for Ethers.js
 
 ## For development 
 1. Install all the dependencies <br/> 
-    `yarn`
+    `yarn` or `yarn install`
 2. Start the development server <br/>
-    `yarn run dev`
+    `yarn start`
 3. Visit [localhost:3000](http://localhost:3000)
 
 ## Interactive documentation

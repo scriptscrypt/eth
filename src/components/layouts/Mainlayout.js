@@ -12,8 +12,8 @@ export default function Mainlayout() {
           
                 <Box className="leftDash" sx={{ width: 240 }} >
                     <NavLink label="Provider Events" variant="light">
-                        <Link to="/providers"><NavLink label="Provider" variant="light"/></Link>
-                        <Link to="/ens"><NavLink label="ENS methods" variant="light"/></Link>
+                        <Link to="/providers"><NavLink label="Accounts Methods" variant="light"/></Link>
+                        <Link to="/block"><NavLink label="Block methods" variant="light"/></Link>
                     </NavLink>       
                         <Link to="/contract"><NavLink label="Contract Events" variant="light" /></Link>
                         <Link to="/signers"><NavLink label="Signer Events" variant="light" /></Link>

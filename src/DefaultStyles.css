@@ -190,7 +190,13 @@ body{
     justify-content:space-between;
     align-items:center;
   }
-
+  .noScrollBar{
+    -ms-overflow-style: none !important; /* for Internet Explorer, Edge */
+    scrollbar-width: none !important; /* for Firefox */
+  }
+  .noScrollBar::-webkit-scrollbar{
+    display: none !important; /* for Chrome, Safari, and Opera */
+  }
 /*For Mobile view*/
   @media(max-width: 528px){
     :root{

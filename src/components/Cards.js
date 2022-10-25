@@ -10,33 +10,51 @@ export default function Cards(props) {
     const [opened, setOpened] = useState(false);
     const [opened2, setOpened2] = useState(false);
     const {provider} = useVarsContext()
+
   //Copy to clipboard
   function copy(){
-      navigator.clipboard.writeText(
-       props.code
-      )
+    navigator.clipboard.writeText(
+     `const ${props.stateVar} = ${props.code}`
+    )
   }
-  //Function to handle click
-  // const handleClick = () =>{
-  //   try{
-  //     props.code
-  //     console.log(props.code)
-  //     }
-  //   catch(err){
-  //     console.log(err)
-  //   }
-  // }
+  //Copy js to clipboard
+  function copyJs(){
+    navigator.clipboard.writeText(
+    `const [${props.stateVar}, set${capitalizeFirstLetter(`${props.stateVar}`)}] = useState("")
+      const ${props.func.name.replace(/ /g,'')} = async () =>{
+        try{
+          set${capitalizeFirstLetter(`${props.stateVar}`)}(${props.code})
+        }
+        catch(err){
+          console.log(err)
+          //Catch Errors or add other features
+        }
+      }`
+    )
+  }
+//Copy Html to clipboard
+  function copyHtml(){
+    navigator.clipboard.writeText(`<button onClick={${props.func.name}}>${props.btnName}</button>`)
+  }
+//Copy Value to clipboard
+  function copyStateVar(){
+    navigator.clipboard.writeText(`{${props.stateVar}}`)
+  }
+
+
+  const capitalizeFirstLetter = ([ first, ...rest ], locale = navigator.language) =>
+  first === undefined ? '' : first.toLocaleUpperCase(locale) + rest.join('')
 
   return (
     <>
   <Group className="box">
-    <Card shadow="xs" p="lg" radius="md"  withBorder>
+    <Card shadow="xs" p="lg" radius="md" withBorder>
       <Group>
-      <Text variant=''>{props.data}</Text>
-      <Button onClick={props.func}  color="blue" fullWidth mt="md" radius="md">
-        {props.btnName}
-      </Button>
-      <Group position="apart" mt="md" mb="xs">  
+        <Text variant=''>{props.data}</Text>
+        <Button onClick={props.func}  color="blue" fullWidth mt="md" radius="md">
+          {props.btnName}
+        </Button>
+        <Group position="apart" mt="md" mb="xs">  
           <Button onClick={() => setOpened(true)} variant="light" color="blue"  mt="md" radius="md">
             {`<> Get code`}
           </Button>
@@ -48,56 +66,61 @@ export default function Cards(props) {
     </Card>
   </Group>
 
-        <Modal opened={opened} onClose={() => setOpened(false)} title="Click on code to copy">
-          
-        <Group position='' >
-          <Tabs defaultValue="Vanillajs">
-            <Tabs.List>
-              <Tabs.Tab value="Vanillajs" >Vanillajs</Tabs.Tab>
-              <Tabs.Tab value="React" >React</Tabs.Tab>
-            </Tabs.List>
+    <Modal className='noScrollBar' overflow="inside" opened={opened} onClose={() => setOpened(false)} title="Click on code to copy">
+      
+<Group>
+  <Tabs defaultValue="Vanillajs">
+    <Tabs.List>
+      <Tabs.Tab value="Vanillajs" >Vanillajs</Tabs.Tab>
+      <Tabs.Tab value="React" >React</Tabs.Tab>
+    </Tabs.List>
 
-            <Tabs.Panel value="Vanillajs" pt="xs">
-              <Code onClick={copy}>  
-                {props.code}
-              </Code>
-            </Tabs.Panel>
+    <Tabs.Panel value="Vanillajs" pt="xs">
+      <Code onClick={copy}>  
+        const {props.stateVar} = {props.code}
+      </Code>
+    </Tabs.Panel>
 
-            <Tabs.Panel value="React" pt="xs">
+    <Tabs.Panel value="React" pt="xs">
+    <Group  className="mp80">
+        <Badge radius="xs">Javascript</Badge>
+{/* Javascript function code */}
+  <Code block="false" onClick={copyJs}>         
+    {`const [${props.stateVar}, set${capitalizeFirstLetter(`${props.stateVar}`)}] = useState("")
+    const ${props.func.name.replace(/ /g,'')} = async () =>{
+      try{
+        set${capitalizeFirstLetter(`${props.stateVar}`)}(${props.code})
+      }
+      catch(err){
+        console.log(err)
+        //Catch Errors or add other features
+      }
+    }`}
+  </Code>
 
-              <Group>
-                <Badge radius="xs">Javascript</Badge>
-                <Code>
-                    {`const ${props.btnName.replace(/ /g,'')} = async () =>{
-                      try{
-                        ${props.code}
-                      }
-                      catch(err){
-                        console.log(err)
-                        //Catch Errors or add other features
-                      }
-                    }`}
-                </Code>
+<Badge radius="xs">Html</Badge>
+{/*Html component code*/}
+  <Code onClick={copyHtml}>
+      {`
+        <button onClick={${props.func.name}}>${props.btnName}</button>
+      `}
+  </Code>
 
-              <Badge radius="xs" >Html</Badge>
-                <Code>
-                    {`
-                      <Button onClick={${props.btnName.replace(/ /g,'')}}>${props.btnName}</Button>
-                    `}
-                </Code>
-              </Group>
+<Badge radius="xs">Value</Badge>
+{/*State variable name*/}
+  <Code onClick={copyStateVar}>
+      {`
+      {${props.stateVar}}
+      `}
+  </Code>
 
-            </Tabs.Panel>
-          </Tabs>
-          
-          {/* <Button variant='light' fullWidth onClick={copy}>
-            <Group> Copy to clipboard 
-              <Image src={iconCopy} width="16px" height="16px"/>
-            </Group>
-          </Button> */}
-        </Group>
-    </Modal>
- 
+</Group>
+    </Tabs.Panel>
+  </Tabs>
+
+</Group>
+</Modal>
+
 
     </>
   )

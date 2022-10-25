@@ -1,0 +1,202 @@
+:root{
+  --f1: 56px;
+  --f2: 32px;
+  --f3: 24px;
+}
+
+.txtPri{
+  color: var(--primary);
+}
+.txtGrey{
+  color: var(--grey)
+}
+
+body{
+    margin:0px;
+    padding:0px;
+    overflow-x: hidden !important;
+    height: 100%;
+    width: 100vw;
+    font-family:'Segoe UI','Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  .h100{
+    height:100vh;
+  }
+  a{
+    all:unset;
+  }
+  a:hover{
+      cursor: pointer;
+  }
+
+  /*Flex Properties*/
+
+  .cfw{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column; 
+    flex-wrap: wrap;
+  }
+  .rfw{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap: wrap;
+  }
+  /*Flex properties without wrap*/
+  .cf{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column; 
+  }
+  .rf{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+  /*Align items*/
+  .alignL{
+    align-items: left;
+  }
+  .alignR{
+    align-items: right;
+  }
+  /*Justify content*/
+  .jusL{
+    justify-content: left;
+  }
+  .jusR{
+    justify-content: right;
+  }
+  .jusSpc{
+    justify-content: space-between;
+  }
+  /*Align text*/
+  .txtC{
+    text-align: center;
+  }
+  .txtR{
+    text-align: right;
+  }
+  /*Margin and Padding*/
+  .m8{
+    margin:8px;
+  }
+  .m80{
+    margin:8px 0px;
+  }
+  .m08{
+    margin:0px 8px;
+  }
+  .m320{
+    margin: 32px 0px;
+  }
+  .p8{
+    padding:8px;
+  }
+  .p80{
+    padding:8px 0px;
+  }
+  .p08{
+    padding:0px 8px;
+  }
+  .mp8{
+    margin: 8px;
+    padding: 8px;
+  }
+  .mp08{
+    margin: 0px 8px;
+    padding: 0px 8px;
+  }
+  .mp80{
+    margin: 8px 0px;
+    padding: 8px 0px;
+  }
+  .mbp8{
+    margin: 0px 8px 8px 8px;
+    padding:8px;
+  }
+  .mp16{
+    margin: 16px;
+    padding: 16px;
+  }
+  .mp816{
+    margin: 8px 16px;
+    padding: 8px 16px;
+  }
+  .mp016{
+    margin: 0px 16px;
+    padding: 0px 16px;
+  }
+  .mbp16{
+    margin: 0px 16px 16px 16px;
+    padding:16px;
+  }
+  .mp0{
+    margin:0px;
+    padding:0px;
+  }
+  /*Width and Height*/
+
+  .w100{
+    width: 100px;
+  }
+  .w288{
+    width:288px;
+  }
+  .w24{
+    width:24%;
+  }
+  .w48{
+    width:48vw;
+  }
+  .w32{
+    width:32vw;
+  }
+  .h32{
+    height:32vh;
+  }
+  .h48{
+    height:48vh;
+  }
+  .h80{
+    height:80vh;
+  }
+ 
+  /*Fonts*/
+  .head1{
+    font-size: var(--f1);
+  }
+  .head2{
+    font-size: var(--f2);
+  }
+  .head3{
+    font-size: var(--f3);
+  }
+  /*Buttons*/
+  /* .btn{
+    border: 1px solid var(--primary);
+    border-radius: 1px;
+    transition: 0.2s !important;
+    }
+  .btn:hover{
+    background-color: var(--primary);
+  } */
+  /*Navbar*/
+  .nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+
+/*For Mobile view*/
+  @media(max-width: 528px){
+    :root{
+    --f1: 48px;
+    --f2: 24px;
+    --f3: 16px;
+  }
+
+  }

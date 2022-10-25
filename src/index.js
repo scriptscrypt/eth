@@ -2,12 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import "./DefaultStyles.css"
 import reportWebVitals from './reportWebVitals';
+import { VarsProvider } from './contexts/VarsContext';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+      <VarsProvider>
+          <App />
+      </VarsProvider>
   </React.StrictMode>
 );
 

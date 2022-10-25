@@ -3,11 +3,23 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* background-color: aqua; */
 }
+.box{
+  width:336px;
+}
+/* .dash{
+  position: absolute;
+} */
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.leftDash{
+  position: fixed !important;
+  top:104px; 
+  left: 8px;
+}
+.rightDash{
+  
+}
+.w64{
+  width:64%;
 }

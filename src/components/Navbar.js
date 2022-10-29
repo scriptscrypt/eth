@@ -1,22 +1,21 @@
 import { Button, Group, Text, Alert, Modal, Image} from "@mantine/core";
-
-import { useState } from "react";
-// import {provider} from "../Variables"
-import { ethers } from "ethers";
+import { useEffect, useState } from "react";
 import logo from "../assets/svgs/logo.svg"
 import { Link } from "react-router-dom";
+import { useVarsContext } from "../contexts/VarsContext";
 
 export default function Navbar() {
     const [walAddress, setWalAddress] = useState("");
     const [opened, setOpened] = useState(false);
     const [btnVisibility, setBtnVisibility] = useState(false);
     const [errMsg, setErrMsg] = useState("")
-    const provider = new ethers.providers.Web3Provider(window.ethereum)
+    const {provider} = useVarsContext()
 
     const conWal = async () =>{
       try{
       setWalAddress(await provider.send("eth_requestAccounts", []))
       setBtnVisibility(true)
+     
       }
       catch(err){
         if(err.code){
@@ -24,8 +23,12 @@ export default function Navbar() {
           setErrMsg(err.message)
         }
       } 
-    }
 
+    }
+    // useEffect(()=>{
+    //   setWalAddress(provider.send("eth_requestAccounts", []))
+    //   setBtnVisibility(true)
+    // },[])
   return (
     <>
     <Group position="apart" m="16px"> 
@@ -33,7 +36,7 @@ export default function Navbar() {
             <Image src={logo} height="32px" className="pointer"/>
         </Link>
 
-        <Group>  
+        <Group>
             {walAddress}
             <Button disabled={btnVisibility} onClick={conWal}>Connect wallet</Button>
         </Group>

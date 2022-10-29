@@ -15,8 +15,8 @@ export default function Mainlayout() {
                         <Link to="/providers"><NavLink label="Accounts Methods" variant="light"/></Link>
                         <Link to="/block"><NavLink label="Block methods" variant="light"/></Link>
                     </NavLink>       
-                        <Link to="/contract"><NavLink label="Contract Events" variant="light" /></Link>
                         <Link to="/signers"><NavLink label="Signer Events" variant="light" /></Link>
+                        <Link to="/contract"><NavLink label="Contract Events" variant="light" /></Link>
                     {/* <Link to="/signer"><NavLink label="Signer Events" variant="light" 
                     active={active}
                 onClick={() => setActive(true)}/></Link>  */}

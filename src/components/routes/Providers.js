@@ -103,6 +103,7 @@ export default function Provider() {
       <Cards btnName="Get Balance"
         data = {accBalance._hex}
         stateVar = "accBalance"
+        stateVarObj = "accBalance._hex"
         func={fetchBalance}
         code={`await provider.getBalance(<account address>);`}
         offLink="https://docs.ethers.io/v5/api/providers/provider/#Provider-getBalance" /> 

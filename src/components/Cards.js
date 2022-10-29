@@ -100,18 +100,19 @@ export default function Cards(props) {
 
 <Badge radius="xs">Html</Badge>
 {/*Html component code*/}
-  <Code onClick={copyHtml}>
-      {`
-        <button onClick={${props.func.name}}>${props.btnName}</button>
-      `}
+  <Code block="false" onClick={copyHtml}>
+      {`<button onClick={${props.func.name}}>${props.btnName}</button>`}
   </Code>
 
 <Badge radius="xs">Value</Badge>
 {/*State variable name*/}
-  <Code onClick={copyStateVar}>
-      {`
-      {${props.stateVar}}
-      `}
+  <Code block="false" onClick={copyStateVar}>
+      {(props.stateVar === undefined) ?
+      `//Use console for key value pairs
+      {${props.stateVarObj}}`
+     :
+      `{${props.stateVar}}`
+      }
   </Code>
 
 </Group>

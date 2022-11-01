@@ -8,9 +8,9 @@ export default function Mainlayout() {
 
   return (
     <>  
-        <div className="rfw ">
-          
-                <Box className="leftDash" sx={{ width: 240 }} >
+        <div className="dash">
+          <div className="leftDash">
+                {/* <Box className="leftDash" sx={{ width: 240 }} > */}
                     <NavLink label="Provider Events" variant="light">
                         <Link to="/providers"><NavLink label="Accounts Methods" variant="light"/></Link>
                         <Link to="/block"><NavLink label="Block methods" variant="light"/></Link>
@@ -20,10 +20,12 @@ export default function Mainlayout() {
 
                         {/* For contributors: */}
                         {/* <Link to="/< route name >"><NavLink label="< Navlink label >" variant="light" /></Link> */}
-                </Box>
+                {/* </Box> */}
+          </div>
 
-      
-                <Outlet/>
+      <div className="rightDash">
+          <Outlet/>
+      </div>
        
         </div>
     </>

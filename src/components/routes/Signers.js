@@ -8,7 +8,7 @@ export default function Signers() {
   const {provider, signer} = useVarsContext()
   const [err, setErr] = useState()
   const [opened, setOpened] = useState()
-  const ipRef = useRef()
+  const ipRef = useRef("message")
 
   const [signature, setSignature] = useState("")
 
@@ -31,7 +31,7 @@ export default function Signers() {
         data={signature}
         stateVar="signature"
         func={fetchSignature}
-        code={`signer.signMessage( message )`}
+        code={`signer.signMessage(< your message >)`}
         offLink="https://docs.ethers.io/v5/api/signer/#Signer-signMessage" />
       </Card>
 

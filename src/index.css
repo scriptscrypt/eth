@@ -8,17 +8,19 @@ body {
 .box{
   width:336px;
 }
-/* .dash{
-  position: absolute;
-} */
+.dash{
+display:flex;
+justify-content:center;
+}
 
 .leftDash{
-  position: fixed !important;
-  top:104px; 
+  width:240px;
+  position: fixed;
   left: 8px;
 }
 .rightDash{
-  
+  position:fixed;
+  left: 300px;
 }
 .w64{
   width:64%;

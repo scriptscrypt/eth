@@ -10,7 +10,7 @@ export function VarsProvider({ children }) {
 
     const [provider, setProvider] = useState(new ethers.providers.Web3Provider(window.ethereum))
     const [signer, setsigner] = useState(provider.getSigner())
-    const [conAddr, setConAddr] = useState()
+    const [conAddr, setConAddr] = useState("")
 
     // setProv(new ethers.providers.Web3Provider(window.ethereum))
     useEffect(()=>{
@@ -18,11 +18,12 @@ export function VarsProvider({ children }) {
         setConAddr(provider.send("eth_requestAccounts", []))
       }
       catch(err){
-        alert(err)
+          alert(err)
       }
     },[])
+    
     return ( 
-      <myContext.Provider value={ { provider, signer, conAddr }}>{children}</myContext.Provider>
+      <myContext.Provider value={ { provider, signer, conAddr}}>{children}</myContext.Provider>
     );
   }
   

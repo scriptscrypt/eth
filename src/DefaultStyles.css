@@ -63,6 +63,9 @@ body{
   .alignR{
     align-items: right;
   }
+  .alignNone{
+    align-items: "";
+  }
   /*Justify content*/
   .jusL{
     justify-content: left;

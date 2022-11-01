@@ -14,6 +14,9 @@ An interactive documentation for Ethers.js
 If you wish to contribute to this project,
 Please check the [Contribution docs](./readme/Contribution.md) for more information
 
+## Deployment
+[Live preview](https://etheasy.web.app)
+
 ## Interactive documentation
 Please click on the image to get the interactive 
 [![Ethers.js Providers](./readme/Ethers.jsProviders.jpg)](https://www.figma.com/file/cOlNwDE6KGtNEtq9jnuKmT/Ethers.js-Providers?node-id=0%3A1)

@@ -4,10 +4,12 @@
     3. Add the navigation link to the route to the left dashboard [src/components/layouts/MainLayout.js](../src/components/layouts/Mainlayout.js) using `<Link to="/< route name >"><NavLink label="< Navlink label >" variant="light" /></Link>`
 
 + Adding a new card ( _Ex: Connect wallet_ ) in a route
-    1. ```<Cards btnName="< _Button name_ >"
+    1.  ```
+        <Cards btnName="< _Button name_ >"
           data = { _Data variable name_ }
           stateVar = "_State variable name_"
           stateVarObj ="_State variable name.method name_"
           func={ _Function name_ }
           code={`_One line Code_`}
-          offLink="_Official link_" /> ```
+          offLink="_Official link_" />
+        ```

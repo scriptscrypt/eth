@@ -2,7 +2,7 @@ import { Group, Modal, Alert } from "@mantine/core";
 import { useContext, useRef, useState } from "react";
 import Cards from "../Cards"
 import {useVarsContext} from "../../contexts/VarsContext"
-
+import ProviderTest from "../Providerstest";
 export default function Provider() {
   
   const [accAdd, setAccAdd] = useState([])
@@ -14,7 +14,8 @@ export default function Provider() {
   const [storage, setStorage] = useState()
   // const [vars, setVars] = useState({storage:""})
     
-  const {provider, connAcc} = useVarsContext();
+  const {provider, conAddr} = useVarsContext();
+
   // console.log(connAcc)
   const conWal = async () =>{
     try{

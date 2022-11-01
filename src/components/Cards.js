@@ -69,7 +69,7 @@ export default function Cards(props) {
     <Modal className='noScrollBar' overflow="inside" opened={opened} onClose={() => setOpened(false)} title="Click on code to copy">
       
 <Group>
-  <Tabs defaultValue="Vanillajs">
+  <Tabs defaultValue="React">
     <Tabs.List>
       <Tabs.Tab value="Vanillajs" >Vanillajs</Tabs.Tab>
       <Tabs.Tab value="React" >React</Tabs.Tab>

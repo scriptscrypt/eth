@@ -41,7 +41,6 @@ export default function Cards(props) {
     navigator.clipboard.writeText(`{${props.stateVar}}`)
   }
 
-
   const capitalizeFirstLetter = ([ first, ...rest ], locale = navigator.language) =>
   first === undefined ? '' : first.toLocaleUpperCase(locale) + rest.join('')
 
@@ -73,6 +72,7 @@ export default function Cards(props) {
     <Tabs.List>
       <Tabs.Tab value="Vanillajs" >Vanillajs</Tabs.Tab>
       <Tabs.Tab value="React" >React</Tabs.Tab>
+      <Tabs.Tab value="Vue" >Vue</Tabs.Tab>
     </Tabs.List>
 
     <Tabs.Panel value="Vanillajs" pt="xs">
@@ -82,10 +82,11 @@ export default function Cards(props) {
     </Tabs.Panel>
 
     <Tabs.Panel value="React" pt="xs">
-    <Group  className="mp80">
-        <Badge radius="xs">Javascript</Badge>
+        
+
+<Badge radius="xs">Javascript</Badge>
 {/* Javascript function code */}
-  <Code block="false" onClick={copyJs}>         
+  <Code block="false" className='wFit m80' onClick={copyJs}>         
     {`const [${props.stateVar}, set${capitalizeFirstLetter(`${props.stateVar}`)}] = useState("")
     const ${props.func.name.replace(/ /g,'')} = async () =>{
       try{
@@ -100,13 +101,13 @@ export default function Cards(props) {
 
 <Badge radius="xs">Html</Badge>
 {/*Html component code*/}
-  <Code block="false" onClick={copyHtml}>
+  <Code block="false" className='wFit m80' onClick={copyHtml}>
       {`<button onClick={${props.func.name}}>${props.btnName}</button>`}
   </Code>
 
-<Badge radius="xs">Value</Badge>
+<Badge radius="xs">State variable</Badge>
 {/*State variable name*/}
-  <Code block="false" onClick={copyStateVar}>
+  <Code block="false" className='wFit m80'  onClick={copyStateVar}>
       {(props.stateVar === undefined) ?
       `//Use console for key value pairs
       {${props.stateVarObj}}`
@@ -115,7 +116,11 @@ export default function Cards(props) {
       }
   </Code>
 
-</Group>
+
+    </Tabs.Panel>
+    
+    <Tabs.Panel value="Vue" pt="xs">
+      Under development
     </Tabs.Panel>
   </Tabs>
 

@@ -167,7 +167,18 @@ body{
   .h80{
     height:80vh;
   }
- 
+  .w64{
+    width:64%;
+  }
+  .wFit{
+    width: fit-content;
+  }
+  .w300{
+    width: 300px;
+  }
+  .wFull{
+    width: 100%;
+  }
   /*Fonts*/
   .head1{
     font-size: var(--f1);

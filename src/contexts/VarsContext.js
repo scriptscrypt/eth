@@ -1,7 +1,5 @@
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { ethers } from "ethers";
-import Navbar from "../components/Navbar";
-
 const myContext = createContext();
 
 //Provider function - Wrap the whole component tree Ex: in index.js
@@ -9,21 +7,29 @@ const myContext = createContext();
 export function VarsProvider({ children }) {
 
     const [provider, setProvider] = useState(new ethers.providers.Web3Provider(window.ethereum))
-    const [signer, setsigner] = useState(provider.getSigner())
-    const [conAddr, setConAddr] = useState("")
+    const [signer, setSigner] = useState(provider.getSigner())
+    // const conAddr = useRef("")
+    const [addr, setAddr] = useState("")
 
-    // setProv(new ethers.providers.Web3Provider(window.ethereum))
-    useEffect(()=>{
-      try{
-        setConAddr(provider.send("eth_requestAccounts", []))
+    useEffect( ()=>{
+      if(!window.ethereum){
+        console.log("No wallet detected")
+        alert("Please install metamask to continue")
+        setProvider("")
+        setSigner("")
       }
-      catch(err){
-          alert(err)
+      else{
+        console.log("Wallet detected") 
+        // conAddr.current =  provider.send("eth_requestAccounts", [])
+        setAddr(provider.send("eth_requestAccounts", []))
       }
-    },[])
+    }, [])
+
     
     return ( 
-      <myContext.Provider value={ { provider, signer, conAddr}}>{children}</myContext.Provider>
+    <>
+    <myContext.Provider value={ { provider, signer, addr}}>{children}</myContext.Provider>
+    </>
     );
   }
   

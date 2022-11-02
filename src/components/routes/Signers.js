@@ -1,5 +1,5 @@
 import React, { useState, useRef} from 'react'
-import { Modal, Alert, Skeleton, Card, Input } from '@mantine/core'
+import { Modal, Alert, Skeleton, Card, Input, Group } from '@mantine/core'
 import { useVarsContext } from '../../contexts/VarsContext'
 import Cards from '../Cards'
 
@@ -23,8 +23,35 @@ export default function Signers() {
     }
   }
 
+  const [signAddr, setSignAddr] = useState("")
+  const getSignAddr = async () =>{
+    try{
+      setSignAddr(await signer.getAddress())
+    }
+    catch(err){
+      console.log(err)
+      setErr(err.message)
+      setOpened(true)
+    }
+  }
+
+  const [signedTrans, setSignedTrans] = useState("")
+  const fetchSignedTrans = async () =>{
+    try{
+      setSignedTrans(await signer.signTransaction() )
+    }
+    catch(err){
+      console.log(err)
+      setErr(err.message)
+      setOpened(true)
+    }
+  }
+
+
   return (
     <>  
+    <Group>
+
     <Card>
       <Input ref={ipRef} placeholder="write your signature message"/>
        <Cards btnName="Sign a message"
@@ -35,6 +62,23 @@ export default function Signers() {
         offLink="https://docs.ethers.io/v5/api/signer/#Signer-signMessage" />
       </Card>
 
+       <Cards btnName="Get address from Signer"
+        data={signAddr}
+        stateVar="signAddr"
+        func={getSignAddr}
+        code={`signer.getAddress()`}
+        offLink="https://docs.ethers.io/v5/api/signer/#Signer-getaddress" />
+          
+       <Cards btnName="Send signed transaction"
+        data={signedTrans}
+        stateVar="signedTrans"
+        func={fetchSignedTrans}
+        code={`signer.signTransaction( < transactionRequest >) `}
+        offLink="https://docs.ethers.io/v5/api/signer/#Signer-signTransaction" />
+  
+
+
+      </Group>
 
     {/* Error Modal */}
     <Modal opened={opened} onClose={() => setOpened(false)} title="Error">

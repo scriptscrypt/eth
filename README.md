@@ -18,7 +18,6 @@ Please check the [Contribution docs](./readme/Contribution.md) for more informat
 [Live preview](https://etheasy.web.app)
 
 ## Interactive documentation
-Please click on the image to get the interactive 
+Please click on the image to direct you to the documentation
 [![Ethers.js Providers](./readme/Ethers.jsProviders.jpg)](https://www.figma.com/file/cOlNwDE6KGtNEtq9jnuKmT/Ethers.js-Providers?node-id=0%3A1)
-[![Ethers.js Signers](./readme/Ethers.jsSigners.jpg)](https://www.figma.com/file/cOlNwDE6KGtNEtq9jnuKmT/Ethers.js-Providers?node-id=0%3A1)
-
+[![Ethers.js Signers](./readme/Ethers.jsSigners.jpg)](https://www.figma.com/file/cOlNwDE6KGtNEtq9jnuKmT/Ethers.js-Providers?node-id=0%3A1) 

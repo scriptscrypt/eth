@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import { Group, Box, NavLink} from '@mantine/core'
 import Navbar from '../Navbar'
+import SendEth from '../SendEth'
 
 export default function Mainlayout() {
     const [active, setActive] = useState(false)
@@ -24,6 +25,7 @@ export default function Mainlayout() {
           </div>
 
       <div className="rightDash">
+        <SendEth/>
           <Outlet/>
       </div>
        

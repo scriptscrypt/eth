@@ -2,7 +2,8 @@ import { Group, Modal, Alert } from "@mantine/core";
 import { useContext, useRef, useState } from "react";
 import Cards from "../Cards"
 import {useVarsContext} from "../../contexts/VarsContext"
-import ProviderTest from "../Providerstest";
+
+
 export default function Provider() {
   
   const [accAdd, setAccAdd] = useState([])
@@ -20,7 +21,7 @@ export default function Provider() {
   const conWal = async () =>{
     try{
       setAccAdd(await provider.send("eth_requestAccounts", []))
-      console.log(accAdd)
+      console.log(accAdd[0])
     }
     catch(err){
       console.log(err)

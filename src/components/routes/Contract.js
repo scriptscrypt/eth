@@ -33,7 +33,7 @@ export default function Contract() {
       <Select value={radioValue} onChange={setRadioValue}
        data={[{ value: provider, label: 'Provider' }, { value: signer, label: 'Signer' }]} />
 
-      <Button onClick={pay}>Pay 1eth</Button>
+      <Button onClick={pay}>Create contract instance</Button>
 
     </Group>
     </>

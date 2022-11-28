@@ -1,4 +1,5 @@
-import { Card, Text, Badge, Button, Group, Modal, Image, Tabs, Code, Alert} from '@mantine/core';
+import { Card, Text, Badge, Button, Group, Modal, Image, Tabs, Code, Notification} from '@mantine/core';
+import { showNotification } from '@mantine/notifications';
 import { useState } from 'react';
 import iconExtLink from "../assets/svgs/iconExternalLink.svg"
 import iconCopy from "../assets/svgs/iconCopy.svg"
@@ -16,6 +17,7 @@ export default function Cards(props) {
     navigator.clipboard.writeText(
      `const ${props.stateVar} = ${props.code}`
     )
+    notify()
   }
   //Copy js to clipboard
   function copyJs(){
@@ -31,25 +33,33 @@ export default function Cards(props) {
         }
       }`
     )
+    notify()
   }
 //Copy Html to clipboard
   function copyHtml(){
     navigator.clipboard.writeText(`<button onClick={${props.func.name}}>${props.btnName}</button>`)
+    notify()
   }
 //Copy Value to clipboard
   function copyStateVar(){
     navigator.clipboard.writeText(`{${props.stateVar}}`)
+    notify()
   }
 
   const capitalizeFirstLetter = ([ first, ...rest ], locale = navigator.language) =>
   first === undefined ? '' : first.toLocaleUpperCase(locale) + rest.join('')
+ 
+  const notify = () =>{
+  showNotification({ title: "Copied to clipboard", autoClose: 800,}) 
+  }
+
 
   return (
     <>
   <Group className="box">
     <Card shadow="xs" p="lg" radius="md" withBorder>
-      <Group>
-        <Text variant=''>{props.data}</Text>
+      <Group >    
+        <div className="overX">{props.data}</div>        
         <Button onClick={props.func}  color="blue" fullWidth mt="md" radius="md">
           {props.btnName}
         </Button>
@@ -127,6 +137,9 @@ export default function Cards(props) {
 </Group>
 </Modal>
 
+ {/*  Notification */}
+
+{/* <Notification title="Copied to clipboard"/> */}
 
     </>
   )

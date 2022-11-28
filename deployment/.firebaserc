@@ -5,10 +5,11 @@
   "targets": {
     "resume-1domain": {
       "hosting": {
-        "v1": [
+        "aaa": [
           "etheasy"
         ]
       }
     }
-  }
+  },
+  "etags": {}
 }

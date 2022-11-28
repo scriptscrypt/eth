@@ -6,25 +6,27 @@ const myContext = createContext();
 
 export function VarsProvider({ children }) {
 
+    //This is for the provider Metamask
     const [provider, setProvider] = useState(new ethers.providers.Web3Provider(window.ethereum))
     const [signer, setSigner] = useState(provider.getSigner())
-    // const conAddr = useRef("")
     const [addr, setAddr] = useState("")
+
+    // setProvider(new ethers.providers.Web3Provider(window.ethereum))
+    // setSigner(provider.getSigner())
 
     useEffect( ()=>{
       if(!window.ethereum){
         console.log("No wallet detected")
         alert("Please install metamask to continue")
-        setProvider("")
-        setSigner("")
+        // setProvider("")
+        // setSigner("")
       }
       else{
         console.log("Wallet detected") 
         // conAddr.current =  provider.send("eth_requestAccounts", [])
-        setAddr(provider.send("eth_requestAccounts", []))
+        // setAddr(provider.send("eth_requestAccounts", []))
       }
     }, [])
-
     
     return ( 
     <>

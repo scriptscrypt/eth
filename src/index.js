@@ -5,13 +5,15 @@ import App from './App';
 import "./DefaultStyles.css"
 import reportWebVitals from './reportWebVitals';
 import { VarsProvider } from './contexts/VarsContext';
-
+import { NotificationsProvider } from '@mantine/notifications';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
       <VarsProvider>
+      <NotificationsProvider>
           <App />
+      </NotificationsProvider>
       </VarsProvider>
   </React.StrictMode>
 );

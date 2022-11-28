@@ -25,8 +25,7 @@ export default function Mainlayout() {
           </div>
 
       <div className="rightDash">
-        <SendEth/>
-          <Outlet/>
+        <Outlet/>
       </div>
        
         </div>

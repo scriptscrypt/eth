@@ -7,10 +7,10 @@ import Cards from "../components/Cards"
 export default function SendEth() {
   
   const {signer} = useVarsContext()
-  const [toAddr, setToAddr] = useState("")
-  const [amount, setAmount] = useState("")
   const [err, setErr] = useState("")
   const [opened, setOpened] = useState(false)
+  const [toAddr, setToAddr] = useState("")
+  const [amount, setAmount] = useState("")
   const [tx, setTx] = useState("")
 
     const pay = async () =>{ 

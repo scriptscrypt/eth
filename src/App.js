@@ -7,6 +7,7 @@ import Home from "./components/routes/Home";
 import Block from "./components/routes/Block"
 
 function App() {
+  
   return (
     <div className="App">
       <Router>

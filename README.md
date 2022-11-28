@@ -16,6 +16,7 @@ Please check the [Contribution docs](./readme/Contribution.md) for more informat
 
 ## Deployment
 [Live preview](https://etheasy.web.app)
++ <code?>Alpha</code> Please try with a metamask/any web3 wallet installed browser to avoid blank screen
 
 ## Interactive documentation
 Please click on the image to direct you to the documentation

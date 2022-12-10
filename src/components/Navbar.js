@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useVarsContext } from "../contexts/VarsContext";
 
 export default function Navbar(){
+
     const [walAddress, setWalAddress] = useState("");
     const [opened, setOpened] = useState(false);
     const [btnVisibility, setBtnVisibility] = useState(false);
@@ -15,9 +16,9 @@ export default function Navbar(){
       try{
       setWalAddress(await provider.send("eth_requestAccounts", []))
       setBtnVisibility(true)
-     
-      }
-      catch(err){
+      
+    }
+    catch(err){
         if(err.code){
           setOpened(true)
           setErrMsg(err.message)
@@ -25,13 +26,20 @@ export default function Navbar(){
       } 
 
     }
-    // useEffect(()=>{
-    //   setWalAddress(provider.send("eth_requestAccounts", []))
-    //   setBtnVisibility(true)
-    // },[])
+    useEffect(()=>{
+      if(walAddress === ""){
+        setBtnVisibility(false)
+        console.log(walAddress)
+      }
+      else{
+        //
+      }
+    },[])
 
+    
   return (
     <>
+
     <Group position="apart" m="16px"> 
         <Link to="/" >
             <Image src={logo} height="32px" className="pointer"/>

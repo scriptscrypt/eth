@@ -15,7 +15,8 @@ If you wish to contribute to this project,
 Please check the [Contribution docs](./readme/Contribution.md) for more information
 
 ## Deployment
-[Live preview](https://etheasy.web.app)
+[Production](https://eth.1doma.in)
+[Alternate](https://etheasy.netlify.app)
 + <code>Alpha</code> Please try with a metamask/any web3 wallet installed browser to avoid blank screen
 
 ## Interactive documentation

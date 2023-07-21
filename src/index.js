@@ -11,7 +11,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
       <VarsProvider>
-      <NotificationsProvider>
+      <NotificationsProvider position="top-right" zIndex={2000}>
           <App />
       </NotificationsProvider>
       </VarsProvider>
